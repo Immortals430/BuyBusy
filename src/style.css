@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Lato:wght@900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Lato:wght@900&display=swap'); */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.flex{
+    display: flex;
+}
+
+.hcenter{
+    justify-content: center;
+}
+
+.vcenter{
+    align-items: center;
+}
+
+.col{
+    flex-flow: column;
+}
+
+section{
+    width: 60vw;
+    margin: 4rem auto;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    margin: 40px;
+}
+section img{
+    width: 150px;
+}
+
+button{
+    cursor: pointer;
+}
+
+
+/* Navbar */
+
+nav{
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #7eb0ad;
+
+}
+
+nav a{
+    color: aliceblue;
+    font-size: 1.1em;
+}
+
+.logo{
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+}
+
+nav > div{
+    width: 50%;
+}
+
+.navlistcontainer{
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+
+/* Sign In */
+
+
+.authContainer{
+    background: #f9f9f9 ;
+    width: 350px;
+    flex-flow: column;
+    align-items: center;
+    padding: 20px 0 30px 0;
+    box-shadow: 0px 0px 30px 0px rgb(75, 75, 75);
+}
+
+.authHeading{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.authForm{
+    flex-flow: column;
+    width: 90%;
+}
+
+.authForm > * {
+    margin: 10px;
+    padding: 8px;
+    border-radius: 20px;
+    
+}
+
+.authButton{
+    border-radius: 0;
+    background: #0076b7;
+    color: white;
+}
+
+.authRedirect{
+    background-color: red;
+    display: block;
+    width: 85%;
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Homepage */
+
+
+main{
+    width: 60vw;
+    margin: 3rem auto;
+}
+
+.react-spinner-material{
+    display: block;
+    margin: auto;
+}
+
+.grid{
+    display: grid;
+    grid: auto / 30% 30% 30%;
+    gap: 25px 5%;
+}
+
+.productContainer{
+    background-color: rgb(255, 255, 255);
+    padding: 6% 8%;
+}
+
+.productContainer > img {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.productContainer > button{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.productContainer > h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.productContainer > p{
+    overflow: hidden;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    max-height: 5rem;
+}
+
+
+/* Aside */
+
+
+aside{
+    width: 12%;
+    padding: 20px;
+    background-color: #f0f0fc;
+    position: fixed;
+    top: 25%;
+    border-radius: 8px;
+}
+
+
+/* Cart */
+.carItemDetails{
+    padding-top: 20px;
+}
+.carItemDetails > div{
+    margin-bottom: 20px;
+}
+
+li{
+    box-shadow: 0px 0px 30px 0px rgb(75, 75, 75);
+    gap: 20px;
+}
+
+.total{
+    text-align: center;
+}
+
+
+/* myorders */
+
+table, td, th{
+    margin: auto;
+    border: 2px black solid;
+    padding: 20px;
+
+}
