@@ -1,5 +1,7 @@
-import React, { useContext } from "react"
-import { ProductContext } from "../../../productContext"
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { productActions, productSelector } from "../../../Redux/reducers/productReducer"
+import { useEffect } from "react"
 
 function Filter(){
 
@@ -8,25 +10,40 @@ function Filter(){
     const womensClothing = React.createRef()
     const jwellery = React.createRef()
     const electronic = React.createRef()
-    const { filter, filterConfig } = useContext(ProductContext)
+    const dispatch = useDispatch()
+    const { filterConfig, products } = useSelector(productSelector)
 
-
+    // call filter
     function callFilter(){
-        filter(
-            Number(priceRange.current.value), 
-            mensClothing.current.checked,
-            womensClothing.current.checked,
-            jwellery.current.checked,
-            electronic.current.checked
-        )
+            dispatch(productActions.filter({
+                priceRange: Number(priceRange.current.value), 
+                mensClothing: mensClothing.current.checked,
+                womensClothing: womensClothing.current.checked,
+                jwellery: jwellery.current.checked,
+                electronic: electronic.current.checked
+            }))
     }
+
+
+    useEffect(() => {
+        if(!filterConfig.electronic && !filterConfig.jwellery && !filterConfig.mensClothing && !filterConfig.womensClothing){
+            let res = products.filter(obj => filterConfig.priceRange <= obj.price)
+            if(res.length > 0) dispatch(productActions.setFilteredProduct(res))
+            return
+        }
+        function executeFilter(){
+            let res = products.filter(obj => filterConfig[obj.category] && filterConfig.priceRange <= obj.price)
+            dispatch(productActions.setFilteredProduct(res))
+        }
+        executeFilter()
+    }, [filterConfig, products])
 
 
     return(
         <aside>
             <h3>Filter</h3>    
             <br/>        
-            <label htmlFor="range"><h3>Price: {filterConfig.priceRange}</h3></label>
+            <label htmlFor="range"><h3>Price:  {filterConfig.priceRange}</h3></label>
             <input type="range" defaultValue="10" max="100000" min="10" ref={priceRange} onChange={callFilter} />
             <br/><br/>
             <h3>Category</h3><br/>          

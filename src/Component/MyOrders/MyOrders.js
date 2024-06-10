@@ -1,9 +1,9 @@
-import { useContext } from "react"
-import { ProductContext } from "../../productContext"
+import { useSelector } from "react-redux"
+import { productSelector } from "../../Redux/reducers/productReducer"
 
 export default function MyOrders(){
 
-    const { myOrder } = useContext(ProductContext)
+    const { myOrder } = useSelector(productSelector)
 
 
     return (
@@ -17,6 +17,7 @@ export default function MyOrders(){
                     </tr>
                 </thead>
                 <tbody>
+                    
                 {myOrder.map((value, i) => (
                     <tr>
                         <td>{value.name}</td>
@@ -24,6 +25,7 @@ export default function MyOrders(){
                         <td>{value.price}</td>
                     </tr>
                 ))}
+               
                 </tbody>
             </table>
         </section>

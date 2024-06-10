@@ -3,15 +3,16 @@ import SignIn from "./Component/Authentication/SignIn";
 import SignUp from "./Component/Authentication/SignUp";
 import Navbar from "./Component/Navbar/Navbar"
 import Products from "./Component/Products/Products";
-import ProductContextProvider from "./productContext";
-import AuthContextProvider from "./authContext";
 import Cart from "./Component/Cart/Cart";
 import MyOrders from "./Component/MyOrders/MyOrders";
+import { Provider } from "react-redux";
+import { store } from "./Redux/store"
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 function App() {
-
   const router = createBrowserRouter([{
     path: '/',
     element: <Navbar/>,
@@ -27,11 +28,10 @@ function App() {
 
   return (
     <>
-    <AuthContextProvider>
-      <ProductContextProvider>
+      <Provider store={store}>
+        <ToastContainer />
         <RouterProvider router={router} />
-      </ProductContextProvider>
-    </AuthContextProvider>
+      </Provider>
     </>
   )
 }
